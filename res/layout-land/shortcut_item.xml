@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright (C) 2012-2013 Sony Mobile Communications AB.
+   All rights, including trade secret rights, reserved.
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/short_cut_item"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/grid_container"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/shortcut_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="@dimen/land_image_top_margin"
+        android:contentDescription="title_add_shortcut_txt"
+        android:scaleType="center"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/shortcut_label"
+        android:layout_width="50dp"
+        android:layout_height="35dp"
+        android:scrollHorizontally="false"
+        android:gravity="top|center_horizontal"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textColor="@color/general_text_color"
+        android:textSize="@dimen/generic_text_size"
+        android:paddingTop="@dimen/land_grid_text_top_padding" />
+
+</LinearLayout>

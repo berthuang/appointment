@@ -1,0 +1,23 @@
+<resources>
+
+    <string name="app_name">约饭</string>
+    <string name="menu_settings">设置</string>
+    <string name="title_activity_main">约饭</string>
+
+    <string name="destination_input_hint">添加目的地</string>
+    
+    <string name="destination_select_point_from_map">地图选点</string>
+    <string name="destination_keywords_search">关键字搜索</string>
+    <string name="destination_favorite">收藏</string>    
+    <string name="title_new_appointment">约新局</string>
+    <string name="title_recipients">联系人</string>
+    <string name="title_time">日期时间</string>
+    <string name="title_location">地点</string>
+    <string name="title_information">局帖</string>
+    <string name="title_attendees">受邀人</string>
+    <string name="button_cancel">取消</string>
+    <string name="button_send">发送</string>
+    <string name="button_accept">接受</string>
+    <string name="button_reject">拒绝</string>
+    <string name="checkbot_share_location">共享自己的位置信息？</string>
+</resources>

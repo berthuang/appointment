@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppointmentTheme" parent="android:style/Theme.DeviceDefault.Light">
+        <item name="android:directionality">leftToRight</item>
+
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <style name="AppointmentEditorTheme" parent="android:style/Theme.DeviceDefault.Light">
+        <item name="android:directionality">leftToRight</item>
+    </style>
+</resources>

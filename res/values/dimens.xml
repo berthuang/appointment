@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- default button height -->
+    <dimen name="default_btn_height">55dp</dimen>
+    <!-- Header button like select address from map -->
+    <dimen name="header_btn_margin_bottom">5dp</dimen>
+    <!-- separator margin horizontal in appointment editor -->
+    <dimen name="separator_margin_horizontal">18dp</dimen>
+    <!-- separator margin vertical in appointment editor -->
+    <dimen name="separator_margin_top">15dp</dimen>
+    <!-- separator margin vertical in appointment editor -->
+    <dimen name="separator_margin_bottom">3dp</dimen>
+    <dimen name="generic_item_height">64dp</dimen>
+    <dimen name="land_image_top_margin">10dp</dimen>
+    <dimen name="land_image_height">76dp</dimen>
+    <dimen name="land_text_item_height">40dp</dimen>
+    <dimen name="generic_text_size">18sp</dimen>
+    <dimen name="land_grid_text_top_padding">8dp</dimen>
+    <dimen name="land_horizontal_grid_space">15dp</dimen>
+    <dimen name="land_vertical_grid_space">15dp</dimen>
+</resources>

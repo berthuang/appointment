@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_view"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/header_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/header_bg" >
+
+        <LinearLayout
+            android:id="@+id/appointment_place"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+            <!-- dumy layout to get focus when first lunch activity -->
+            <LinearLayout
+                android:id="@+id/dumy_layout"
+                android:layout_width="0px"
+                android:layout_height="0px"
+                android:focusable="true"
+                android:focusableInTouchMode="true" />
+
+            <EditText
+                android:id="@+id/appointment_destination_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:hint="@string/destination_input_hint" />
+
+            <ImageButton
+                android:id="@+id/select_destination_from_map_btn"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:scaleType="center"
+                android:layout_weight="0"
+                android:textColor="@color/color_black"
+                android:src="@drawable/btn_icon_select"
+                android:background="@drawable/default_btn" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/default_btn_height"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal" >
+
+                <Button
+                    android:id="@+id/btn_navsearch_mapselect"
+                    android:layout_marginBottom="@dimen/header_btn_margin_bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/color_black"
+                    android:layout_weight="1.0"
+                    android:scaleType="fitCenter"
+                    android:drawableTop="@drawable/btn_icon_enter_map"
+                    android:background="@drawable/default_btn"
+                    android:text="@string/destination_select_point_from_map"/>
+
+               <Button
+                    android:id="@+id/btn_navsearch_keywrds"
+                    android:layout_marginLeft="-2dp"
+                    android:layout_marginBottom="@dimen/header_btn_margin_bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:text="@string/destination_keywords_search"
+                    android:textColor="@color/color_black"
+                    android:scaleType="fitCenter"
+                    android:background="@drawable/default_btn"
+                    android:drawableTop="@drawable/btn_input_keywords" />
+
+                <Button
+                    android:id="@+id/btn_navsearch_favorite"
+                    android:layout_marginLeft="-2dp"
+                    android:layout_marginBottom="@dimen/header_btn_margin_bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:text="@string/destination_favorite"
+                    android:textColor="@color/color_black"
+                    android:scaleType="fitCenter"
+                    android:background="@drawable/default_btn"
+                    android:drawableTop="@drawable/btn_icon_favorite" />
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/listview_navsearch_hotkey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.baidu.mapapi.MapView
+        android:id="@+id/bmapsView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clickable="true" />
+
+</LinearLayout>

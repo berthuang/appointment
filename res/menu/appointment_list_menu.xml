@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/spinner"
+          android:title="share"
+          android:showAsAction="always"
+          android:actionViewClass="android.widget.Spinner" />
+    <item
+        android:id="@+id/menu_new_conversation"
+        android:icon="@drawable/conv_new_message"
+        android:showAsAction="always"
+        android:title="add"/>
+    <item
+        android:id="@+id/menu_delete_conversations"
+        android:title="delete"/>
+</menu>

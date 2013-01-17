@@ -1,0 +1,183 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.android.appointment"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <!-- JPush Permission -->
+
+    <permission
+        android:name="com.android.appointment.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.CALL_PHONE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_CONTACTS" >
+    </uses-permission>
+
+    <!-- Add JPush related Permission -->
+    <uses-permission android:name="com.android.appointment.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="false"
+        android:resizeable="true"
+        android:smallScreens="true" />
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="15" />
+    
+
+    <application
+        android:name=".AppointmentApp"
+        android:icon="@drawable/food"
+        android:label="@string/app_name" >
+
+        <activity
+            android:name=".ui.AppointmentMainActivity"
+            android:label="@string/title_activity_main"
+            android:configChanges="orientation|keyboardHidden" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- Do not add true to hardwareAccelerated due to baidu map will not refresh
+        http://blog.csdn.net/daguaio_o/article/details/8135151
+        -->
+        <activity
+            android:name=".ui.SelectAddressActivity"
+            android:label="@string/title_activity_main"
+            android:hardwareAccelerated="false"
+            android:theme="@style/AppointmentTheme" >
+        </activity>
+
+        <!-- Add JPush activity, maybe could be remove -->
+        <activity
+            android:name="cn.jpush.android.ui.PushActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.android.appointment" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.AppointmentEditActivity"
+            android:label="@string/title_new_appointment"
+            android:theme="@style/AppointmentEditorTheme" >
+        </activity>
+
+        <activity
+            android:name=".ui.AppointmentAffirmActivity"
+            android:theme="@style/AppointmentTheme" >
+        </activity>
+        
+        <activity
+            android:name=".ui.AppointmentListActivity"
+            android:screenOrientation="user"
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            android:configChanges="orientation|keyboardHidden|screenSize" >
+        </activity>
+
+        <provider android:name=".provider.Conversation"
+                  android:authorities="appointment-conversation"
+                  android:multiprocess="true" />
+
+        <provider android:name=".provider.Recipient"
+                  android:authorities="appointment-recipient"
+                  android:multiprocess="true" />
+
+        <provider android:name=".provider.FavoriteAddress"
+                  android:authorities="appointment-favorite-address"
+                  android:multiprocess="true" />
+
+        <!-- Required JPush SDK -->
+        <service
+            android:name="cn.jpush.android.service.DownloadService"
+            android:enabled="true"
+            android:exported="false" />
+        <!-- Required JPush SDK -->
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER" />
+                <action android:name="cn.jpush.android.intent.REPORT" />
+                <action android:name="cn.jpush.android.intent.PushService" />
+                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
+            </intent-filter>
+        </service>
+
+        <!-- Required IPush SDK -->
+        <receiver
+            android:name="cn.jpush.android.service.PushReceiver"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Required SDK核心功能 -->
+        <receiver android:name="cn.jpush.android.service.AlarmReceiver" />
+        <!-- JPush User defined receiver -->
+        <receiver
+            android:name="com.android.appointment.services.JpushReceiver"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION" />
+                <!-- Required  JPush 用户注册SDK的权限 -->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
+                <!-- Required  用户接收SDK消息的权限 -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
+                <!-- Required  用户接收SDK通知栏信息的权限 -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
+
+                <category android:name="com.android.appointment" />
+            </intent-filter>
+        </receiver>
+        <!-- Required  . Enable it you can get statistics data with channel -->
+        <meta-data
+            android:name="JPUSH_CHANNEL"
+            android:value="developer-default" />
+        <meta-data
+            android:name="JPUSH_APPKEY"
+            android:value="461dd6a7ea300bebd6a34fb0" />
+    </application>
+
+</manifest>

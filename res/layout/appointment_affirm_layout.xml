@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_view"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/header_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/header_bg"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/appointment_request_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:singleLine="true"
+            android:text="**发起的聚会" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/time_title_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10px"
+        android:paddingTop="15px"
+        android:singleLine="true"
+        android:text="@string/title_time" />
+
+    <LinearLayout
+        android:id="@+id/time_detail_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/time_detail_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:drawable/edit_text"
+            android:singleLine="true" />
+
+        <ImageButton
+            android:id="@+id/launch_calender_button"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:layout_weight="0"
+            android:background="@drawable/default_btn"
+            android:scaleType="center"
+            android:src="@drawable/btn_launch_calendar" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/destination_title_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10px"
+        android:paddingTop="15px"
+        android:singleLine="true"
+        android:text="@string/title_location" />
+
+    <LinearLayout
+        android:id="@+id/destination_detail_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/destination_detail_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:drawable/edit_text"
+            android:singleLine="true" />
+
+        <ImageButton
+            android:id="@+id/launch_map_button"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:layout_weight="0"
+            android:background="@drawable/default_btn"
+            android:scaleType="center"
+            android:src="@drawable/btn_launch_map"
+            android:textColor="@color/color_black" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/invitation_title_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10px"
+        android:paddingTop="15px"
+        android:singleLine="true"
+        android:text="@string/title_information" />
+
+    <ScrollView
+        android:id="@+id/invitation_detail_scrollview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/edit_text"
+        android:scrollbarStyle="outsideOverlay" >
+
+        <TextView
+            android:id="@+id/invitation_detail_textview"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:lines="2" />
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/attendees_title_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10px"
+        android:paddingTop="15px"
+        android:singleLine="true"
+        android:text="@string/title_attendees" />
+
+    <ScrollView
+        android:id="@+id/attendees_detail_scrollview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/edit_text"
+        android:scrollbarStyle="outsideOverlay" >
+
+        <TextView
+            android:id="@+id/attendees_detail_textview"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:lines="5" />
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/bottom_view"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <CheckBox
+            android:id="@+id/share_location_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:text="@string/checkbot_share_location" >
+        </CheckBox>
+
+        <LinearLayout
+            android:id="@+id/affirm_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20px"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/accept_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5px"
+                android:layout_marginLeft="5px"
+                android:layout_marginRight="5px"
+                android:layout_marginTop="5px"
+                android:layout_weight="1"
+                android:text="@string/button_accept" />
+
+            <Button
+                android:id="@+id/reject_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5px"
+                android:layout_marginLeft="5px"
+                android:layout_marginRight="5px"
+                android:layout_marginTop="5px"
+                android:layout_weight="1"
+                android:text="@string/button_reject" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
